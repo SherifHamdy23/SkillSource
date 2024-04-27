@@ -1,0 +1,17 @@
+<?php
+// make_model.php
+require_once './Support/autoload.php';
+
+
+use Support\Console;
+
+if ($argc < 2) {
+    echo "Usage: php make_model.php <model_name>\n";
+    exit(1);
+}
+
+$modelName = $argv[1];
+
+$modelCreator = new Console();
+$modelCreator->create($argv, $modelName);
+?>
