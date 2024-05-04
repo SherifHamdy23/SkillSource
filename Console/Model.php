@@ -1,8 +1,8 @@
 <?php
 
-use Support\Console;
 
 require_once './Support/autoload.php';
+use Support\Console;
 
 
 class ConsoleModel extends Console {

@@ -1,6 +1,10 @@
 <?php
 
-class {{modelName}}
+
+namespace Models;
+use Support\Contracts\ModelInterface;
+
+class {{modelName}} implements ModelInterface
 {
     // Add your model logic here
 }

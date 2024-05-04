@@ -1,5 +1,6 @@
 <?php
 spl_autoload_register(function ($class_name) {
+    require_once __DIR__.'/helper/functions.php';
     $base_directory = '../'; // Base directory relative to the current directory
     $file_extension = '.php'; // File extension of PHP files
 
