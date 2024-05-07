@@ -2,19 +2,17 @@
 namespace Support;
 
 abstract class Model {
-    private static $table = '';
+    private static $table;
     protected static $fillable = ['name', 'email', 'password'];
-    public function __construct()
-    {
-        static::$table = lcfirst(basename(static::class))."s";
-        echo self::$table."\n";
-    }
+
 
     public static function all() {
-        return DB::query('select * from '. lcfirst(basename(static::class))."s");
+        $query = "select * from ". (static::$table ?? static::$table = lcfirst(basename(str_replace('\\', '/' ,static::class)))."s");
+        return DB::query($query);
     }
     public static function create(array $data) {
-        $query = 'INSERT INTO '. lcfirst(basename(static::class))."s (";
+        // return;
+        $query = 'INSERT INTO '. (static::$table ?? lcfirst(basename(str_replace('\\', '/' ,static::class)))."s") ." (";
         $values = "VALUES (";
         foreach (static::$fillable as $column) {
             $query .= $column.",";
@@ -36,5 +34,10 @@ abstract class Model {
     }
     public static function delete($id) {
 
+    }
+
+    public static function where($column, $value) {
+        $table = (static::$table ?? lcfirst(basename(str_replace('\\', '/' ,static::class)))."s");
+        return DB::query("SELECT * FROM $table WHERE $column = :$column" , [$column => $value])[0];
     }
 }
