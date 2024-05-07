@@ -15,7 +15,7 @@ class DB implements DBInterface {
     }
 
     public static function connect() {
-            $host = 'localhost'; // Your host name
+            $host = '127.0.0.1'; // Your host name
             $dbname = 'pp_uni'; // Your database name
             $username = 'root'; // Your database username
             $password = ''; // Your database password
@@ -36,10 +36,11 @@ class DB implements DBInterface {
             }
     }
 
-    public static function query($query) {
+    public static function query($query, $params = []) {
         // Implement query logic
         $db = static::getInstance();
-        $query = $db->query($query);
+        $query = $db->prepare($query);
+        $query->execute($params);
         $results = $query->fetchAll(\PDO::FETCH_ASSOC);
         // foreach($results as $row)
         //     print_r($row);
