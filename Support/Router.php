@@ -16,6 +16,15 @@ class Router {
         static::$routes['GET'][$url] = $handler;
     }
 
+    public static function post($url, $handler) {
+        static::$routes['POST'][$url] = $handler;
+    }
+    public static function put($url, $handler) {
+        static::$routes['PUT'][$url] = $handler;
+    }
+    public static function delete($url, $handler) {
+        static::$routes['DELETE'][$url] = $handler;
+    }
     public static function dispatch($url, $verb) {
         if (array_key_exists($url, self::$routes[$verb])) {
             // Route found, execute the handler
