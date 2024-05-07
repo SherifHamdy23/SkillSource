@@ -1,14 +1,35 @@
 <?php
     namespace Support;
 
-    class Auth {
-        private static $user = null;
+    use Models\User;
 
-        public static function login() {
 
+    // auth.php
+class Auth {
+    public static function login($email, $password) {
+        $user = User::where('email', $email);
+        if ($user['password'] == 'password') {
+            session_start();
+            $_SESSION['user'] = $user;
+            return true;
         }
-
-        public static function register() {
-
-        }
+        return false;
     }
+
+    public static function logout() {
+        // Implement logout logic
+        session_start();
+        unset($_SESSION['user']);
+        session_destroy();
+    }
+
+    public static function isLoggedIn() {
+        return isset($_SESSION['user']);
+    }
+
+    public static function getCurrentUserId() {
+        return isset($_SESSION['user']) ? $_SESSION['user'] : null;
+    }
+}
+
+    
