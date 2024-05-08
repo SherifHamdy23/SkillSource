@@ -20,5 +20,8 @@ class UsersController {
         view('about', ['users' => $users]);
     }
 
+    public function edit(array $data) {
+        echo "This is user " . $data['id'];
+    }
 }
 ?>

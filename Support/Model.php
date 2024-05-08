@@ -10,6 +10,7 @@ abstract class Model {
         $query = "select * from ". (static::$table ?? static::$table = lcfirst(basename(str_replace('\\', '/' ,static::class)))."s");
         return DB::query($query);
     }
+    
     public static function create(array $data) {
         // return;
         $query = 'INSERT INTO '. (static::$table ?? lcfirst(basename(str_replace('\\', '/' ,static::class)))."s") ." (";
@@ -30,10 +31,16 @@ abstract class Model {
 
     }
     public static function update($id, array $data) {
-
+        $query = 'UPDATE '. (static::$table ?? lcfirst(basename(str_replace('\\', '/' ,static::class)))."s") ." SET ";
+        foreach (static::$fillable as $column) {
+            $query .= $column."=:".$column.", ";
+        }
+        $query .= 'WHERE id=:id';
+        DB::query($query, $data);
     }
     public static function delete($id) {
-
+        $query = 'DELETE FROM '. (static::$table ?? lcfirst(basename(str_replace('\\', '/' ,static::class)))."s") ." WHERE id=:id";
+        DB::query($query, ['id' => $id]);
     }
 
     public static function where($column, $value) {
