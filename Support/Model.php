@@ -3,7 +3,7 @@ namespace Support;
 
 abstract class Model {
     private static $table;
-    protected static $fillable = ['name', 'email', 'password'];
+    protected static $fillable = [];
 
 
     public static function all() {
@@ -16,13 +16,13 @@ abstract class Model {
         $values = "VALUES (";
         foreach (static::$fillable as $column) {
             $query .= $column.",";
-            $values .= '"'.$data[$column]."\",";
+            $values .= is_string($data[$column]) ? '"'.$data[$column]."\",": $data[$column].",";
         }
         $query .= '$';
         $values .= '$';
 
         $full_query = str_replace(',$', ')', $query)." ".str_replace(',$', ')', $values);
-        // echo $full_query;
+        echo $full_query;
         DB::query($full_query);
     }
     
