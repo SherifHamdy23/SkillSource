@@ -4,6 +4,11 @@
         header('Location: test');
     }
 
+    function isLoggedIn() {
+        session_start();
+        if (!isset($_SESSION['user'])) header('Location: /login');
+        return true;
+    }
     function view($view, $data = []) {
         // echo $view;
         // print_r($data);

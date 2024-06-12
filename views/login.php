@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    if (isset($_SESSION['user'])) header('Location: /home');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="violet">
     <head>

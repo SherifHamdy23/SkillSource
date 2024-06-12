@@ -7,6 +7,9 @@ use Support\Model;
 
 class User extends Model implements ModelInterface {
 
+    protected static $fillable = [
+        'name', 'email', 'password'
+    ];
     public static function getAll() {
         return [
             ['id' => 1, 'name' => 'John Doe'],
