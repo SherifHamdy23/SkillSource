@@ -28,7 +28,17 @@ class Auth {
     }
 
     public static function getCurrentUserId() {
-        return isset($_SESSION['user']) ? $_SESSION['user'] : null;
+        return isset($_SESSION['user']) ? $_SESSION['user']['id'] : null;
+    }
+
+    public static function register($email, $password, $name, $phone, $address) {
+        User::create([
+            'email' => $email,
+            'password' => $password,
+            'name' => $name,
+            'phone' => $phone,
+            'address' => $address
+        ]);
     }
 }
 

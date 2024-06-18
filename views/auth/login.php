@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if (isset($_SESSION['user'])) header('Location: /home');
 ?>
 <!DOCTYPE html>
@@ -79,11 +78,11 @@
                                                         <label class="text-white align-middle" for="flexCheckDefault">Remember me</label>
                                                     </div>
                                                     <div class="my-8 text-center">
-                                                        <button type="submit" class="btn w-full bg-white text-gray-900 font-medium border-transparent hover:-translate-y-1.5 duration-500 ease">Sign Up
+                                                        <button type="submit" class="btn w-full bg-white text-gray-900 font-medium border-transparent hover:-translate-y-1.5 duration-500 ease">Login
                                                     </button></div>
                                                 </form>
                                                 <div class="text-center">
-                                                    <p class="text-white">Create Account ? <a href="sign-up.html" class="text-white underline fw-medium"> Sign Up </a></p>
+                                                    <p class="text-white">Create Account ? <a href="/register" class="text-white underline fw-medium"> Sign Up </a></p>
                                                 </div>
                                             </div>
                                         </div>

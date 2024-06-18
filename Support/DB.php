@@ -29,7 +29,7 @@ class DB implements DBInterface {
                 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
                 
                 
-                echo "Connected successfully";
+                // echo "Connected successfully";
             } catch (\PDOException $e) {
                 // If connection fails, handle the exception
                 echo "Connection failed: " . $e->getMessage();

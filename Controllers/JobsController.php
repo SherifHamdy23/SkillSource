@@ -9,7 +9,7 @@ class JobsController
     }
 
     public function create() {
-        view('create_job');
+        view('job/create');
     }
 
     public function store() {
@@ -28,10 +28,27 @@ class JobsController
     public function update($id) {
         // type your logic here and don't forget to return the value
     }
+
+    public function show($id) {
+        $job = Job::find($id);
+        if (!$job) {
+            return view('errors/404');
+        }
+        return view('job/show', ['job' => $job]);
+    }
+
     public function delete($id) {
+        Job::delete($id);
+    }
+
+    public function apply($id) {
         // type your logic here and don't forget to return the value
     }
 
+    public function candidates($id) {
+        // type your logic here and don't forget to return the value
+        return view('job/candidates', ['id' => $id]);
+    }
 }
 
 ?>

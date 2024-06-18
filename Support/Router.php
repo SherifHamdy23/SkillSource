@@ -26,22 +26,31 @@ class Router {
         static::$routes['DELETE'][$url] = $handler;
     }
     public static function dispatch($url, $verb) {
-        if (array_key_exists($url, self::$routes[$verb])) {
-            // Route found, execute the handler
-            $handler = self::$routes[$verb][$url];
-            if (is_callable($handler)) {
-                call_user_func($handler);
-            } else {
-                // Handle controller action
-                list($controllerName, $methodName) = $handler;
-                $controller = new $controllerName();
-                echo $controller->$methodName();
+        foreach (self::$routes[$verb] as $pattern => $handler) {
+            // Convert route pattern to a regular expression
+            $pattern = str_replace('/', '\/', $pattern);
+            $pattern = preg_replace('/\{[^}]+\}/', '([^\/]+)', $pattern); // Accepts any character except '/'
+            $pattern = '/^' . $pattern . '$/';
+        
+            if (preg_match($pattern, $url, $matches)) {
+                array_shift($matches); // Remove the full match, keep only the captured groups
+        
+                // Step 2: Extract parameters (e.g., user_id) from the URL
+                if (is_callable($handler)) {
+                    // If the handler is a function, pass the extracted parameters
+                    call_user_func_array($handler, $matches);
+                } else {
+                    // Handle controller action with parameters
+                    list($controllerName, $methodName) = $handler;
+                    $controller = new $controllerName();
+        
+                    // Step 3: Invoke the controller method with parameters
+                    echo call_user_func_array([$controller, $methodName], $matches);
+                }
+        
+                return; // Exit the loop and method once a matching route is found and handled
             }
-        } else {
-            // Route not found, handle 404
-            header("HTTP/1.0 404 Not Found");
-            echo "404 Not Found";
-        }
     }
+    return view('errors/404');
 }
-
+}
