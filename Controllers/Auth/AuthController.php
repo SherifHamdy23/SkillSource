@@ -51,7 +51,7 @@ class AuthController
         // return '<pre>'.print_r($req, true).'</pre>';
         // print_r(DB::query('select @@sql_mode'));
          if (Auth::register($email, $password, $name, $phone, $accountType) == 1) {
-            header("Location: /login");
-    }
+            header("Location: /login", true);
+        }
 }
 }
