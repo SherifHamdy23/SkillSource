@@ -9,7 +9,6 @@ class Auth {
     public static function login($email, $password) {
         $user = User::first(User::where('email', $email));
         if ($user['password'] == $password) {
-            session_start();
             $_SESSION['user'] = $user;
             return true;
         }

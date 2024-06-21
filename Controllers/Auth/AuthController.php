@@ -13,9 +13,9 @@ class AuthController
         $password = $_POST['password'];
         
         if (Auth::login($email, $password) == 1) {
-            header("Location: /home");
+            header("Location: /home", true);
         } else {
-            header("Location: /login?error=invalid_credentials");
+            header("Location: /login?error=invalid_credentials", true);
         }
     }
 
