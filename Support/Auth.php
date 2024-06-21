@@ -17,7 +17,6 @@ class Auth {
 
     public static function logout() {
         // Implement logout logic
-        session_start();
         unset($_SESSION['user']);
         session_destroy();
     }
