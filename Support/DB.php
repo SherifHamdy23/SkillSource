@@ -15,20 +15,19 @@ class DB implements DataBaseInterface {
     }
 
     public static function connect() {
-        $uri = "mysql://avnadmin:AVNS_bgwmUUeglySS6hYNwEs@mysql-251a5251-sherifhamdy-09b8.f.aivencloud.com:14471/defaultdb?ssl-mode=REQUIRED";
-
-        $fields = parse_url($uri);
-        
+        $host = env('DB_HOST');
+        $port = env('DB_PORT');
+        $user = env('DB_USERNAME');
+        $pass = env('DB_PASSWORD');
+        $dbname = env('DB_DATABASE');
         // build the DSN including SSL settings
-        $conn = "mysql:";
-        $conn .= "host=" . $fields["host"];
-        $conn .= ";port=" . $fields["port"];;
-        $conn .= ";dbname=defaultdb";
-        $conn .= ";sslmode=verify-ca;sslrootcert=ca.pem";
+        $conn = "mysql:host=$host;port=$port;dbname=$dbname";
+        if (env('DB_SSL') == true)
+            $conn .= ";sslmode=verify-ca;sslrootcert=ca.pem";
 
         try {
             // Create a PDO instance
-            $db = new \PDO($conn, $fields["user"], $fields["pass"]);
+            $db = new \PDO($conn, $user, $pass);
             static::$instance = $db;
             
             // Set PDO to throw exceptions on errors

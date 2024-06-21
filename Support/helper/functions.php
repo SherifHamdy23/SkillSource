@@ -58,3 +58,20 @@
     function passwordConfirmation($password, $password_confirmation) {
         return $password === $password_confirmation;
     }
+
+    function env($key, $default = null)
+    {
+        $envFile = __DIR__ . '/../../.env';
+    
+        if (!file_exists($envFile)) {
+            return getenv($key) ?: $default;
+        }
+    
+        $env = parse_ini_file($envFile);
+    
+        if (isset($env[$key])) {
+            return $env[$key];
+        }
+    
+        return $default;
+    }
