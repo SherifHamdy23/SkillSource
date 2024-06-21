@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($class_name) {
     require_once __DIR__.'/helper/functions.php';
-    $base_directory = ""; // Empty string to load from root directory or its subdirectories
+    $base_directory = "/../"; // Empty string to load from root directory or its subdirectories
     $file_extension = '.php'; // File extension of PHP files
 
     // Convert namespace separators (\) to directory separators (/)
