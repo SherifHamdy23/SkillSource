@@ -15,7 +15,7 @@ class DB implements DBInterface {
     }
 
     public static function connect() {
-        $uri = "mysql://avnadmin:AVNS_rlxpS4nUoHpYFHrZiMq@mysql-251a5251-sherifhamdy-09b8.f.aivencloud.com:14471/defaultdb?ssl-mode=REQUIRED";
+        $uri = "mysql://avnadmin:AVNS_bgwmUUeglySS6hYNwEs@mysql-251a5251-sherifhamdy-09b8.f.aivencloud.com:14471/defaultdb?ssl-mode=REQUIRED";
 
         $fields = parse_url($uri);
         
