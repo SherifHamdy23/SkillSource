@@ -16,8 +16,8 @@ spl_autoload_register(function ($class_name) {
 
     // Attempt to include the class file from the first valid path
     foreach ($potential_paths as $path) {
-        echo $path."<br>";
         if (file_exists($path)) {
+            echo $path."<br>";
             include $path;
             return;
         }
