@@ -12,7 +12,6 @@ class AuthController
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-
         if (Auth::login($email, $password) == 1) {
             header("Location: /home");
         } else {

@@ -8,7 +8,7 @@
 class Auth {
     public static function login($email, $password) {
         $user = User::first(User::where('email', $email));
-        if ($user['password'] == 'password') {
+        if ($user['password'] == $password) {
             session_start();
             $_SESSION['user'] = $user;
             return true;
@@ -33,11 +33,11 @@ class Auth {
 
     public static function register($email, $password, $name, $phone, $accountType) {
         User::create([
-            'email' => $email,
-            'password' => $password,
-            'name' => $name,
-            'phone' => $phone,
-            'account_type' => $accountType
+            ':name' => $name,
+            ':email' => $email,
+            ':password' => $password,
+            ':phone' => $phone,
+            ':account_type' => $accountType
         ]);
         return User::exists('email', $email);
     }

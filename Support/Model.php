@@ -16,19 +16,11 @@ abstract class Model {
         return DB::query($query);
     }
 
-    public static function create(array $data) {
-        $query = 'INSERT INTO '. static::table() ." (";
-        $values = "VALUES (";
-        foreach (static::$fillable as $column) {
-            $query .= $column.",";
-            $values .= is_string($data[$column]) ? '"'.$data[$column]."\",": $data[$column].",";
-        }
-        $query .= '$';
-        $values .= '$';
-
-        $full_query = str_replace(',$', ')', $query)." ".str_replace(',$', ')', $values);
-        echo $full_query;
-        return DB::query($full_query);
+    public static function create($data) {
+        $columns = implode(', ', static::$fillable);
+        $placeholders = ':' . implode(', :', static::$fillable);
+        $sql = "INSERT INTO " . static::table() . " ($columns) VALUES ($placeholders)";
+        return DB::query($sql, $data);
     }
     
     public static function find($id) {

@@ -43,14 +43,10 @@ class DB implements DBInterface {
     }
 
     public static function query($query, $params = []) {
-        // Implement query logic
         $db = static::getInstance();
-        $query = $db->prepare($query);
-        $query->execute($params);
-        $results = $query->fetchAll(\PDO::FETCH_ASSOC);
-        // foreach($results as $row)
-        //     print_r($row);
-        return $results;
+        $stmt = $db->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function close() {
