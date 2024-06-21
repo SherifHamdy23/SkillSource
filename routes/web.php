@@ -1,7 +1,7 @@
 <?php
     
     require_once __DIR__.'/../Support/autoload.php';
-    require_once __DIR__.'./auth.php';
+    require_once __DIR__.'/auth.php';
 
     use Support\Router;
 
