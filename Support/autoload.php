@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($class_name) {
     require_once __DIR__.'/helper/functions.php';
-    $base_directory = '../'; // Base directory relative to the current directory
+    $base_directory = '/../'; // Base directory relative to the current directory
     $file_extension = '.php'; // File extension of PHP files
 
     // Convert namespace separators (\) to directory separators (/)
@@ -9,8 +9,8 @@ spl_autoload_register(function ($class_name) {
 
     // Define potential paths to check for the file
     $potential_paths = [
-        "./" . $class_file,     // Check in current directory
-        $base_directory . $class_file // Check in parent directory
+        __DIR__."/". $class_file,     // Check in current directory
+        __DIR__.$base_directory . $class_file // Check in parent directory
     ];
 
     // Attempt to include the class file from the first valid path
