@@ -2,7 +2,7 @@
     if (isset($_SESSION['user'])) header('Location: /home');
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="violet">
+<html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="blue">
     <head>
         <meta charset="utf-8" />
         <title>index-1 | Jobcy - Admin & Dashboard Template</title>
@@ -32,8 +32,6 @@
     
     <body class="bg-white dark:bg-neutral-800">
 
-
-
         
 
 
@@ -49,9 +47,9 @@
                                     <div class="grid flex-col grid-cols-12 ">
                                         <div class="col-span-12 lg:col-span-6 ltr:rounded-l-lg rtl:rounded-r-lg">
                                             <div class="p-10">
-                                                <a href="index.html">
-                                                    <img src="assets/images/logo-light.png" alt="" class="hidden mx-auto dark:block">
-                                                    <img src="assets/images/logo-dark.png" alt="" class="block mx-auto dark:hidden">
+                                                <a href="/">
+                                                    <img src="assets/images/logo.svg" alt="" class="hidden mx-auto dark:block" width="136">
+                                                    <img src="assets/images/logo.svg" alt="" class="block mx-auto dark:hidden" width="136">
                                                 </a>
                                                 <div class="mt-5">
                                                     <img src="assets/images/auth/sign-in.png" alt="">
@@ -62,9 +60,12 @@
                                             <div class="flex flex-col justify-center h-full p-12">
                                                 <div class="text-center">
                                                     <h5 class="text-[18.5px] text-white">Welcome Back !</h5>
-                                                    <p class="mt-3 text-white/80">Sign in to continue to Jobcy.</p>
-                                                </div>
-                                                <form action="login" method="POST" class="mt-8">
+                                                    <p class="mt-3 text-white/80">Sign in to continue to HireMe.</p>
+                                                    </div>
+                                                    <form action="login" method="POST" class="mt-8">
+                                                        <?php if (isset($_GET['error'])): ?>
+                                                            <p class="text-white bg-red-500 p-1 w-40 text-center rounded"><?= $_GET['error']?></p>
+                                                        <?php endif; ?>
                                                     <div class="mb-5">
                                                         <label for="usernameInput" class="text-white">Email</label>
                                                         <input type="text" name="email" class="w-full mt-1 group-data-[theme-color=violet]:bg-violet-400/40 group-data-[theme-color=sky]:bg-sky-400/40 group-data-[theme-color=red]:bg-red-400/40 group-data-[theme-color=green]:bg-green-400/40 group-data-[theme-color=pink]:bg-pink-400/40 group-data-[theme-color=blue]:bg-blue-400/40 py-2.5 rounded border-transparent placeholder:text-sm placeholder:text-gray-50 text-white" required="" id="usernameInput" placeholder="Enter your username">

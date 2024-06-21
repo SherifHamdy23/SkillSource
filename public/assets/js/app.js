@@ -71,5 +71,71 @@ window.addEventListener('resize', function(){
     document.getElementById('navbar-collapse').classList.add("hidden");
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('addSkill').addEventListener('click', function() {
+    var input = document.querySelector('input[name="Skills"]');
+    var list = document.getElementById('skillList');
+    var value = input.value.trim(); // Trim whitespace
+
+    if (value) { // Only add if the input is not empty
+    var li = document.createElement('li');
+    li.textContent = value;
+    li.classList.add('p-2', 'bg-black', 'rounded', 'text-white');
+    li.style.marginRight = '0.2rem';
+    li.style.marginTop = '0.2rem';
+    list.appendChild(li);
+    
+
+    input.value = ''; // Clear the input field
+    }
+});
+document.getElementById('addQualification').addEventListener('click', function() {
+    var input = document.querySelector('input[name="Qualifications"]');
+    var list = document.getElementById('QualificationList');
+    var value = input.value.trim(); // Trim whitespace
+
+    if (value) { // Only add if the input is not empty
+    var li = document.createElement('li');
+    li.textContent = value;
+    li.classList.add('p-2', 'bg-black', 'rounded', 'text-white');
+    li.style.marginRight = '0.2rem';
+    li.style.marginTop = '0..1.5rem';
+    list.appendChild(li);
+    
+
+    input.value = ''; // Clear the input field
+    }
+});
+
+var form = document.querySelector('form'); // Adjust the selector if needed
+
+form.addEventListener('submit', function(event) {
+  // Prevent the form from submitting immediately
+  event.preventDefault();
+
+  // Handle Qualifications
+  var qualificationListItems = document.querySelectorAll('#QualificationList li');
+  qualificationListItems.forEach(function(item, index) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'Qualifications[]'; // Use array notation for the name
+    input.value = item.textContent;
+    form.appendChild(input);
+  });
+
+  // Handle Skills
+  var skillListItems = document.querySelectorAll('#skillList li');
+  skillListItems.forEach(function(item, index) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'Skills[]'; // Use array notation for the name
+    input.value = item.textContent;
+    form.appendChild(input);
+  });
+
+  // Now submit the form
+  form.submit();
+});
+});
 
 initActiveMenu();

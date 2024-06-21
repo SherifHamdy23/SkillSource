@@ -241,7 +241,7 @@
                             <div class="relative dropdown ltr:mr-4 rtl:ml-4">
                                 <button type="button" class="flex items-center px-4 py-5 dropdown-toggle" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <img class="w-8 h-8 rounded-full ltr:xl:mr-2 rtl:xl:ml-2" src="/assets/images/user/img-02.jpg" alt="Header Avatar">
-                                    <span class="hidden fw-medium xl:block dark:text-gray-50">Shawn L.</span>
+                                    <span class="hidden fw-medium xl:block dark:text-gray-50"><?= auth()->name ?></span>
                                 </button>
                                 <ul class="absolute top-auto z-50 hidden w-48 p-3 list-none bg-white border rounded shadow-lg dropdown-menu border-gray-500/20 xl:ltr:-left-3 ltr:-left-32 rtl:-right-3 dark:bg-neutral-800" id="profile/log" aria-labelledby="navNotifications">
                                     <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
@@ -251,7 +251,7 @@
                                         <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50" href="bookmark-jobs.html">Bookmarks Jobs</a>
                                     </li>
                                     <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
-                                        <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50" href="profile.html">My Profile</a>
+                                        <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50" href="/profile">My Profile</a>
                                     </li>
                                     <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
                                         <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50" href="sign-out.html">Logout</a>
@@ -490,7 +490,7 @@
                                             <div class="grid grid-cols-12">
                                                 <div class="col-span-12 lg:col-span-8">
                                                     <div class="relative">
-                                                        <h5 class="mb-1 text-gray-900 dark:text-gray-50">Product Designer / UI Designer</h5>
+                                                        <h5 class="mb-1 text-gray-900 dark:text-gray-50"><?= $job['job_title'] ?></h5>
                                                         <ul class="flex gap-4 text-gray-500 dark:text-gray-300">
                                                             <li>
                                                                 <i class="mdi mdi-account"></i> 8 Vacancy
@@ -517,33 +517,34 @@
                                                 <div class="col-span-12 lg:col-span-3">
                                                     <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                                         <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Experience</p>
-                                                        <p class="font-medium text-gray-900 dark:text-gray-50">Minimum 1 Year</p>
+                                                        <p class="font-medium text-gray-900 dark:text-gray-50"><?= $job['Experience_level']?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-span-12 lg:col-span-3">
                                                     <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                                         <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Employee type</p>
-                                                        <p class="font-medium text-gray-900 dark:text-gray-50">Full Time</p>
+                                                        <p class="font-medium text-gray-900 dark:text-gray-50"><?= $job['Employee_type']?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-span-12 lg:col-span-3">
                                                     <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                                         <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Position</p>
-                                                        <p class="font-medium text-gray-900 dark:text-gray-50">Senior</p>
+                                                        <p class="font-medium text-gray-900 dark:text-gray-50"><?= $job['position']?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-span-12 lg:col-span-3">
                                                     <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                                         <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Offer Salary</p>
-                                                        <p class="font-medium text-gray-900 dark:text-gray-50">$2150/ Month</p>
-                                                    </div>
-                                                </div>
+                                                        <p class="font-medium text-gray-900 dark:text-gray-50">$<?= $job['Offer_salary']?>/ Month</p>
+                                                        </div>
+                                                        </div>
+                                                    <?php //print_r(array_keys($job)); ?>
                                             </div>
 
                                             <div class="mt-5">
                                                 <h5 class="mb-3 text-gray-900 dark:text-gray-50">Job Description</h5>
                                                 <div>
-                                                    <p class="mb-0 text-gray-500 dark:text-gray-300">As a Product Designer, you will work within a Product Delivery Team fused with UX, engineering, product and data talent. You will help the team design beautiful interfaces that solve business challenges for our clients. We work with a number of Tier 1 banks on building web-based applications for AML, KYC and Sanctions List management workflows. This role is ideal if you are looking to segue your career into the FinTech or Big Data arenas.</p>
+                                                    <p class="mb-0 text-gray-500 dark:text-gray-300"><?= $job['description']?></p>
                                                 </div>
                                             </div>
 
@@ -814,7 +815,7 @@
                                                         <i class="uil uil-user icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                                         <div class="ltr:ml-4 rtl:mr-4">
                                                             <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Job Title</h6>
-                                                            <p class="text-gray-500 dark:text-gray-300">Product Designer</p> 
+                                                            <p class="text-gray-500 dark:text-gray-300"><?= $job['job_title']?></p> 
                                                         </div>
                                                     </div>
                                                 </li>
@@ -823,7 +824,7 @@
                                                         <i class="uil uil-star-half-alt icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                                         <div class="ltr:ml-4 rtl:mr-4">
                                                             <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Experience</h6>
-                                                            <p class="text-gray-500 dark:text-gray-300"> 0-3 Years</p> 
+                                                            <p class="text-gray-500 dark:text-gray-300"><?= $job['Experience_level']?></p> 
                                                         </div>
                                                     </div>
                                                 </li>
@@ -832,7 +833,7 @@
                                                         <i class="uil uil-location-point icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                                         <div class="ltr:ml-4 rtl:mr-4">
                                                             <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Location</h6>
-                                                            <p class="text-gray-500 dark:text-gray-300"> New york</p> 
+                                                            <p class="text-gray-500 dark:text-gray-300"><?= $job['location'] ?></p> 
                                                         </div>
                                                     </div>
                                                 </li>
@@ -875,7 +876,7 @@
                                             </ul>
 
                                             <div class="mt-8 space-y-2">
-                                                <a href="#applyNow" data-bs-toggle="modal" class="btn w-full group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent text-white hover:-translate-y-1.5">Apply Now <i class="uil uil-arrow-right"></i></a>
+                                                <a href="/job/<?= $job['id']?>/apply" data-bs-toggle="modal" class="btn w-full group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent text-white hover:-translate-y-1.5">Apply Now <i class="uil uil-arrow-right"></i></a>
                                                 <a href="bookmark-jobs.html" class="btn w-full bg-yellow-500/20 border-transparent text-yellow-500 hover:-translate-y-1.5 dark:bg-yellow-500/30"><i class="uil uil-bookmark"></i> Add Bookmark</a>
                                             </div>
                                         </div>
@@ -1135,19 +1136,7 @@
         </footer>
         <!-- end Footer -->
 
+        <?php include_once(__DIR__."/../components/scripts.php"); ?>
 
-     <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
-     <script src="/assets/libs/@popperjs/core/umd/popper.min.js"></script>
-     <script src="/assets/libs/simplebar/simplebar.min.js"></script>
-
-
-        <script src="/assets/js/pages/switcher.js"></script>
-
-    <script src="/assets/js/pages/dropdown&modal.init.js"></script>
-
-    <script src="/assets/js/pages/nav&tabs.js"></script>
-
-    <script src="/assets/js/app.js"></script>
-    
 </body>
 </html>

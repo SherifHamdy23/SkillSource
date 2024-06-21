@@ -7,7 +7,7 @@
     // auth.php
 class Auth {
     public static function login($email, $password) {
-        $user = User::where('email', $email);
+        $user = User::first(User::where('email', $email));
         if ($user['password'] == 'password') {
             session_start();
             $_SESSION['user'] = $user;
@@ -31,14 +31,15 @@ class Auth {
         return isset($_SESSION['user']) ? $_SESSION['user']['id'] : null;
     }
 
-    public static function register($email, $password, $name, $phone, $address) {
+    public static function register($email, $password, $name, $phone, $accountType) {
         User::create([
             'email' => $email,
             'password' => $password,
             'name' => $name,
             'phone' => $phone,
-            'address' => $address
+            'account_type' => $accountType
         ]);
+        return User::exists('email', $email);
     }
 }
 

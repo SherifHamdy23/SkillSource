@@ -52,4 +52,9 @@ class DB implements DBInterface {
         static::$instance->close();
     }
 
+    public static function lastInsertedId() {
+        // Implement last inserted id logic
+        return static::$instance->lastInsertId();
+    }
+
 }

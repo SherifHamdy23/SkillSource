@@ -7,6 +7,7 @@
 
     use Controllers\UsersController;
     use Controllers\JobsController;
+    use Support\Request;
 
     // Example usage
     // Define routes
@@ -19,15 +20,17 @@
     fn () => view('200')
 );
 
-    Router::get('/job/apply', [JobsController::class, 'index']);
-    Router::post('/job/apply', [JobsController::class, 'index']);
     Router::get('/job/create', [JobsController::class, 'create']);
     Router::post('/job/store', [JobsController::class, 'store']);
+    Router::get('/job/{id}/apply', [JobsController::class, 'apply']);
     Router::get('/job/{id}', [JobsController::class, 'show']);
 
+    Router::get('/job/{id}/edit', fn() => view('jobs/edit'));
 
     Router::get('/job/{id}/candidates', [JobsController::class, 'candidates']);
 
+    $request = Request::getInstance($_REQUEST);
     $requestUrl = $_SERVER['REQUEST_URI'];
-    // echo $_SERVER['REQUEST_METHOD']."<br>";
+    $requestUrl = explode('?', $requestUrl)[0];
     Router::dispatch($requestUrl, $_SERVER['REQUEST_METHOD']);
+    
