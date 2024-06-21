@@ -2,9 +2,9 @@
 
 namespace Support;
 
-use Support\Contracts\DBInterface;
+use Support\Contracts\DataBaseInterface;
 
-class DB implements DBInterface {
+class DB implements DataBaseInterface {
     private static $instance = null;
 
     public static function getInstance()
