@@ -34,7 +34,7 @@
     </head>
     
     <body class="bg-white dark:bg-neutral-800">        
-        <?php include_once(__DIR__."../components/nav.php"); ?>
+        <?php include_once(__DIR__."/components/nav.php"); ?>
 
 
 
