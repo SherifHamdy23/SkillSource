@@ -32,9 +32,6 @@ class DB implements DataBaseInterface {
             
             // Set PDO to throw exceptions on errors
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            
-            
-            // echo "Connected successfully";
         } catch (\PDOException $e) {
             // If connection fails, handle the exception
             echo "Connection failed: " . $e->getMessage();
