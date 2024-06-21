@@ -5,7 +5,11 @@
     },
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/assets/(.*)",   // Route for static assets (CSS, JS, images, etc.)
+            "dest": "/public/assets/$1"
+        },
+        {
+            "src": "/(.*)",           // Route for all other requests
             "dest": "/api/index.php"
         }
     ],
