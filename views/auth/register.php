@@ -402,7 +402,6 @@
         const jobSeeker = document.getElementById('JobSeeker');
         const createAccount = document.getElementById('CreateAccount');
         const navAccount = document.getElementById('navAccount');
-        const AccountType = document.getElementsByName('account_type')[0]
 
         function ChangeStyle() {
             createAccount.classList.remove('bg-gray-200');
@@ -430,7 +429,7 @@
             if (recuiter.checked) {
                 jobSeeker.checked = true;
                 JobSeekerContent();
-                ChangeSignupText('job_seeker')
+                ChangeSignupText('jobseeker')
                 } else {
                 recuiter.checked = true;
                 RecuiterContent();
@@ -444,7 +443,7 @@
                     SignupText.innerText = 'Sign up to hire talent';
                     document.getElementById('navText').innerText = 'Looking for work?';
                     break;
-                case 'job_seeker':
+                case 'jobseeker':
                     SignupText.innerText = 'Sign up to find work you love';
                     document.getElementById('navText').innerText = 'Here to hire talent?';
                     break;
@@ -453,7 +452,8 @@
         createAccount.addEventListener('click', () => {
             document.getElementById('ChangeAccount').classList.remove('hidden');
             const SignupText = document.getElementById('SignupText');
-            ChangeSignupText(AccountType.value)
+            const AccountType = document.querySelector('input[name="account_type"]:checked').value;
+            ChangeSignupText(AccountType)
             document.getElementById('SelectAccount').classList.add('hidden');
             document.getElementById('RegistrationForm').classList.remove('hidden');
             createAccount.classList.add('hidden')
