@@ -1,6 +1,7 @@
 <?php
 namespace Controllers\Auth;
 
+use Models\User;
 use Support\Auth;
 use Support\DB;
 use Support\Request;
@@ -31,7 +32,7 @@ class AuthController
         } else {
             $password = $user->password;
         }
-        DB::query("UPDATE users SET name = ?, email = ?, phone = ?, password = ? WHERE id = ?", [$name, $email, $phone, $password, $user->id]);
+        User::update($user->id, ['name' => $name, 'email' => $email, 'phone' => $phone, 'password' => $password]);
         header("Location: /profile?success=profile_updated");
     }
     public function logout() {

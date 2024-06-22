@@ -28,7 +28,7 @@
     Router::get('/job/{id}/edit', fn() => view('jobs/edit'));
 
     Router::get('/job/{id}/candidates', [JobsController::class, 'candidates']);
-
+    Router::get('/jobs/manage', fn() => view('job/manage-jobs'));
     $request = Request::getInstance($_REQUEST);
     $requestUrl = $_SERVER['REQUEST_URI'];
     $requestUrl = explode('?', $requestUrl)[0];

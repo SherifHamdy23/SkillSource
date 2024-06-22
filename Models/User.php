@@ -2,7 +2,6 @@
 
 namespace Models;
 
-use ArrayObject;
 use Support\Contracts\ModelInterface;
 use Support\Model;
 

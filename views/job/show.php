@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="violet">
+<html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="blue">
     <head>
         <meta charset="utf-8" />
         <title>index-1 | Jobcy - Admin & Dashboard Template</title>

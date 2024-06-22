@@ -10,8 +10,10 @@ class Request {
         if (isset(static::$instance))
             return static::$instance;
         else
-            return static::$instance = new ArrayObject($data, ArrayObject::ARRAY_AS_PROPS);
-    }
+            static::$instance = new ArrayObject($data, ArrayObject::ARRAY_AS_PROPS);
+            static::$instance['uri'] = $_SERVER['REQUEST_URI'];
+            return static::$instance;
+        }
 
     public static function get($prop, $ifNull = null) {
         return static::getInstance()->$prop ?? $ifNull;

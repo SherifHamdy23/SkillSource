@@ -18,7 +18,7 @@ class JobsController
     }
 
     public function store() {
-        isLoggedIn();
+        RedirectIfGuest();
 
         echo '<pre>'.print_r($_POST, true).'</pre>';
         $skills = $_POST['Skills'];

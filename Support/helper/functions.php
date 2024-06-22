@@ -1,4 +1,7 @@
 <?php
+
+use Support\Auth;
+
     session_start();
 
     function redirect() {
@@ -6,6 +9,10 @@
     }
 
     function isLoggedIn() {
+        return isset($_SESSION['user']);
+    }
+
+    function RedirectIfGuest() {
         if (!isset($_SESSION['user'])) header('Location: /login');
         return true;
     }
@@ -13,16 +20,26 @@
         if (isset($_SESSION['user'])) header('Location: /home');
     }
 
-    function isRecuiter() {
-        isLoggedIn();
-        if ($_SESSION['user']['account_type'] != 'recuiter') header('Location: /home');
-        return true;
+    function redirectIfJobSeeker() {
+        RedirectIfGuest();
+        if (Auth::user()->account_type != 'Recuiter')
+            back();
     }
 
     function isJobSeeker() {
-        isLoggedIn();
-        if ($_SESSION['user']['account_type'] != 'job_seeker') header('Location: /home');
-        return true;
+        RedirectIfGuest();
+        return Auth::user()->account_type == 'jobseeker';
+    }
+
+    function isRecuiter() {
+        RedirectIfGuest();
+        return Auth::user()->account_type == 'Recuiter';
+    }
+
+    function redirectIfRecuiter() {
+        RedirectIfGuest();
+        if (Auth::user()->account_type != 'jobseeker')
+            back();
     }
 
     function view($view, $data = []) {
@@ -74,4 +91,12 @@
         }
     
         return $default;
+    }
+
+    function back() {
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+        } else {
+            header('Location: /');
+        }
     }
