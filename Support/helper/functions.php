@@ -100,3 +100,7 @@ use Support\Auth;
             header('Location: /');
         }
     }
+
+    function request() {
+        return Support\Request::getInstance();
+    }

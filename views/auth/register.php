@@ -18,8 +18,16 @@
     <link rel="stylesheet" href="/assets/css/icons.css" />
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
 
-
-
+    <style>
+        .ml-0 {
+            margin-left: 0;
+        }
+        @media screen and (min-width: 1024px){
+            .lg\:ml-4 {
+                margin-left: 1rem;
+            }
+        }
+    </style>
 
 </head>
 
@@ -28,10 +36,10 @@
     <?php include_once __DIR__ . '/../components/nav.php'; ?>
 
 
-    <div class="block" style="width: 700px; height: 400px; margin-top: 100px; padding: 20px;">
+    <div class="grid" style="color: black; margin-top: 100px; padding: 20px;">
         <h1 id="SignupText" class="text-3xl font-bold mb-12 text-center">Join as a Recuiter or Job Seeker</h1>
         <form action="/register" method="POST">
-        <div id="SelectAccount" class="flex justify-evenly">
+        <div id="SelectAccount" class="flex justify-evenly flex-col items-center lg:justify-normal lg:flex-row">
             <label for="Recuiter">
                 <div class="relative rounded-lg border border-2 border-gray-200" style="width : 265px; height: 150px;">
                     <input type="radio" name="account_type" id="Recuiter" class="absolute top-5 w-5 h-5 border-2 border-gray-400" style="right: 10%;" value="recuiter">
@@ -40,8 +48,8 @@
                     <p class="absolute font-bold" style="font-size: 11px; bottom: 15%; left: 10%;">Find and hire top talent quickly and efficiently with our tools.</p>
                 </div>
             </label>
-            <label for="JobSeeker">
-                <div class="relative rounded-lg border border-2 border-gray-200" style="width : 265px; height: 150px; margin-right: 20px;">
+            <label for="JobSeeker" class="mt-4 lg:mt-0 ml-0 lg:ml-4">
+                <div class="relative rounded-lg border border-2 border-gray-200" style="width : 265px; height: 150px;">
                     <input type="radio" name="account_type" id="JobSeeker" class="absolute top-5 w-5 h-5 border-2 border-gray-400" style="right: 10%;" value="jobseeker">
                     <img class="absolute left-6 top-5" style="top: 40%;" src="/assets/images/freelancer.svg" alt="Recuiter" width='32' height="32">
                     <p class="absolute font-bold" style="font-size: large; bottom: 40%; left: 10%;">Job Seeker</p>

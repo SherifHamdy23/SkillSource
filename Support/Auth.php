@@ -7,7 +7,11 @@
     // auth.php
 class Auth {
     public static function login($email, $password) {
-        $user = User::first(User::where('email', $email));
+        $user = User::where('email', $email);
+        if (!$user) {
+            return false;
+        }
+        $user = $user[0];
         if (password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user;
             return true;

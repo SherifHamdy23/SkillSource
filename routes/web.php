@@ -3,7 +3,8 @@
     require_once __DIR__.'/../Support/autoload.php';
     require_once __DIR__.'/auth.php';
 
-    use Support\Router;
+use Controllers\CommentsController;
+use Support\Router;
 
     use Controllers\UsersController;
     use Controllers\JobsController;
@@ -24,8 +25,10 @@
     Router::post('/job/store', [JobsController::class, 'store']);
     Router::get('/job/{id}/apply', [JobsController::class, 'apply']);
     Router::get('/job/{id}', [JobsController::class, 'show']);
-
     Router::get('/job/{id}/edit', fn() => view('jobs/edit'));
+
+    Router::post('/job/{id}/comment', [CommentsController::class, 'store']);
+
 
     Router::get('/job/{id}/candidates', [JobsController::class, 'candidates']);
     Router::get('/jobs/manage', fn() => view('job/manage-jobs'));

@@ -4,8 +4,32 @@ namespace Support;
 use Models\Job;
 
 abstract class Model {
+    protected $data;
     private static $table;
     protected static $fillable = [];
+
+    public function __construct(array $data) {
+        $this->data = new \ArrayObject($data);
+    }
+
+    public function __get($key) {
+        if (isset($this->data[$key])) {
+            return $this->data[$key];
+        }
+        return null;
+    }
+
+    public function __set($key, $value) {
+        $this->data[$key] = $value;
+    }
+
+    public function __isset($key) {
+        return isset($this->data[$key]);
+    }
+
+    public function __unset($key) {
+        unset($this->data[$key]);
+    }
 
     public static function table() {
         return static::$table ?? static::$table = lcfirst(basename(str_replace('\\', '/' ,static::class)))."s";
@@ -25,8 +49,11 @@ abstract class Model {
     
     public static function find($id) {
         $table = static::table();
-        return DB::query("SELECT * FROM $table WHERE id = :id" , ['id' => $id]);
-
+        $result = DB::query("SELECT * FROM $table WHERE id = :id", ['id' => $id]);
+        $found = $result[0] ?? null;
+        if ($found) {
+            return new static($found);
+        }
     }
     public static function update($id, array $data) {
         $table = static::table();
@@ -67,13 +94,18 @@ abstract class Model {
         return $obj[0];
     }
 
+    public static function hasMany($related, $foreign_key, $id) {
+        return DB::query("SELECT * FROM $related WHERE $foreign_key = :id", ['id' => $id]);
+    }
+
+    public static function belongsTo($related, $foreign_key, $id) {
+        return DB::query("SELECT * FROM $related WHERE id = :id", ['id' => $id]);
+    }
+
     public static function lastInsertedId() {
         return DB::lastInsertedId();
     }
 
-    public static function first($arr) {
-        return $arr[0];
-    }
     public static function exists($column, $value) {
         $table = static::table();
         $result = DB::query("SELECT * FROM $table WHERE $column = :$column", [$column => $value]);

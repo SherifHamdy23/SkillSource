@@ -183,7 +183,7 @@
                                                     <div>
                                                         <div class="mt-5">
                                                             <div class="grid grid-cols-12 gap-5">
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                                <div class="lg:col-span-6" style="width: 70%;">
                                                                     <div   class="mb-6x sticky-step-number text-body-sm"><span   class="text-light-on-muted"><span   class="sr-only">Step</span>
                                                                             1/5
                                                                         </span> <span   class="ml-6x">Job post</span></div>
@@ -212,7 +212,7 @@
                                                                             </li>
                                                                         </ul>
                                                                     </div>
-                                                                </div> -->
+                                                                </div>
                                                                 <!--end col-->
                                                                 <!-- <div class="lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
@@ -455,7 +455,7 @@
                                                                     </div>
                                                                 </div> -->
                                                                 <!--end col-->
-                                                                <div class="lg:col-span-6" style="width: 70%;">
+                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             5/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -485,7 +485,7 @@
                                                                 <div class="lg:col-span-5">
                                                                     <p class="font-bold">Describe what you need</p>
                                                                     <textarea name="" id="" class="mt-3 rounded-lg border border-gray-200 w-full" rows="10" placeholder="Already have a description? Paste it here!"></textarea>
-                                                                </div>
+                                                                </div> -->
                                                                 <!--end col-->
                                                                 <!-- <div class="col-span-12 lg:col-span-12">
                                                                     <div class="relative mb-3">
@@ -802,7 +802,7 @@
                                                     <!--end profile-->
 
                                                     <!--end Change-password-->
-                                                    <div class="mt-8 text-right">
+                                                    <div class="mt-8 text-right absolute bottom-0">
                                                         <a href="javascript:void(0)" class="text-white btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent focus:ring group-data-[theme-color=violet]:focus:ring-violet-500/20 group-data-[theme-color=sky]:focus:ring-sky-500/20 group-data-[theme-color=red]:focus:ring-red-500/20 group-data-[theme-color=green]:focus:ring-green-500/20 group-data-[theme-color=pink]:focus:ring-pink-500/20 group-data-[theme-color=blue]:focus:ring-blue-500/20">Next</a>
                                                     </div>
                                                 </form>

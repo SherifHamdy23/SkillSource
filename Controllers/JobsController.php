@@ -51,10 +51,11 @@ class JobsController
 
     public function show($id) {
         $job = Job::find($id);
+        // return '<pre>'.print_r($job, true).'</pre>';
         if (!$job) {
             return view('errors/404');
         }
-        return view('job/show', ['job' => Job::first($job)]);
+        return view('job/show', ['job' => $job, 'comments' => $job->comments($id), 'recuiters' => $job->recuiter($id)]);
     }
 
     public function delete($id) {

@@ -19,7 +19,19 @@ class Job extends Model implements ModelInterface
     ];
 
     public function skills($id) {
-        return $this->belongsToMany(Skill::class, 'job_skills', 'job_id', 'skill_id', $id);
+        return static::hasMany( 'job_skills', 'job_id', $id);
+    }
+
+    public function candidates($id) {
+        return static::hasMany('candidates',  'job_id',  $id);
+    }
+
+    public function recuiter() {
+        return static::belongsTo('users', 'id', $this->id);
+    }
+
+    public function comments() {
+        return static::hasMany('comments', 'job_id', $this->id);
     }
 }
 
