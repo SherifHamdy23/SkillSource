@@ -47,7 +47,7 @@ class AuthController
         $password = sanitize_input($req->password);
         $password_confirmation = sanitize_input($req->passwordConfirmation);
         $phone = sanitize_input($req->phone);
-        $accountType = sanitize_input($req->accountType);
+        $accountType = sanitize_input($req->account_type);
         if(!passwordConfirmation($password, $password_confirmation)) header("Location: /register?error=password_mismatch");
         // return '<pre>'.print_r($req, true).'</pre>';
         // print_r(DB::query('select @@sql_mode'));
