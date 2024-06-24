@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) header('Location: /home');
 <body class="bg-white dark:bg-neutral-800">
 
     <div class="grid place-items-center" style="height: 100vh;">
-        <div class="flex flex-col justify-center px-12 py-12 rounded-lg" style="width: 450px; padding-inline: 20px; border: 2px solid #73B1E4;">
+        <div class="flex flex-col justify-center px-12 py-12 rounded-lg lg:border lg:border-gray-500" style="max-width: 450px;">
             <div class="flex flex-col items-center text-center">
                 <img src="/assets/images/logo.svg" alt="logo" width="120" height="120">
                 <h5 class="text-[18.5px]">Welcome Back !</h5>

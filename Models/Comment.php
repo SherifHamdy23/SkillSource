@@ -13,8 +13,10 @@ class Comment extends Model implements ModelInterface
         'comment',
     ];
 
+    protected static $table = 'comments';
+
     public static function job($id) {
-        return static::belongsTo('job_comments', 'job_id', $id);
+        return static::belongsTo('comments', 'job_id', $id);
     }
 
     public static function user($id) {

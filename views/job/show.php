@@ -167,8 +167,8 @@
                                         </div>
                                         <div class="col-span-12 lg:col-span-3">
                                             <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
-                                                <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Offer Salary</p>
-                                                <p class="font-medium text-gray-900 dark:text-gray-50">$<?= $job->Offer_salary ?>/ Month</p>
+                                                <p class="mb-1 text-gray-500 dark:text-gray-300 text-13"><?= $job->salary_type == 'Range' ?: 'Salary' ?></p>
+                                                <p class="font-medium text-gray-900 dark:text-gray-50">$<?= $job->salary_type == 'Range'? $job->salary_range: $job->salary ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                     <div class="mt-5">
                                         <h5 class="mb-3 text-gray-900 dark:text-gray-50">Job Description</h5>
                                         <div>
-                                            <p class="mb-0 text-gray-500 dark:text-gray-300"><?= $job->description ?></p>
+                                            <p class="mb-0 text-gray-500 dark:text-gray-300 break-words"><?= $job->description ?></p>
                                         </div>
                                     </div>
 

@@ -36,14 +36,19 @@ class Auth {
     }
 
     public static function register($email, $password, $name, $phone, $accountType) {
-        User::create([
-            ':name' => $name,
-            ':email' => $email,
-            ':password' => password_hash($password, PASSWORD_DEFAULT),
-            ':phone' => $phone,
-            ':account_type' => $accountType
-        ]);
-        return User::exists('email', $email);
+        try {
+            User::create([
+                ':name' => $name,
+                ':email' => $email,
+                ':password' => password_hash($password, PASSWORD_DEFAULT),
+                ':phone' => $phone,
+                ':account_type' => $accountType
+            ]);
+            return User::exists('email', $email);
+        } catch (\Exception $e) {
+            return view('errors/500', ['message' => isset($e->errorInfo[2]) ? $e->errorInfo[2] : 'An error occurred']);
+        }
+        
     }
 }
 

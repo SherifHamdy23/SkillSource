@@ -161,13 +161,12 @@
                             </div>
                         </div>
                     </div>
-                    <img src="/assets/images/about/shape.png" alt="" class="absolute block bg-cover -bottom-0 dark:hidden">
-                    <img src="/assets/images/about/shape-dark.png" alt="" class="absolute hidden bg-cover -bottom-0 dark:block">
+
                 </section> -->
 
             <!-- Start grid -->
             <section class="py-28">
-                <div class="container mx-auto" style="width: 80wh;">
+                <div class="relative container mx-auto" style="width: 80wh;">
                     <div class="grid grid-cols-10 gap-y-10 lg:gap-12">
 
                         <div class="col-span-12">
@@ -179,26 +178,26 @@
 
                                         <div class="w-full tab-pane" id="settings-tab">
                                             <div class="pt-8 space-x-8">
-                                                <form action="#">
-                                                    <div>
-                                                        <div class="mt-5">
-                                                            <div class="grid grid-cols-12 gap-5">
-                                                                <div class="lg:col-span-6" style="width: 70%;">
-                                                                    <div   class="mb-6x sticky-step-number text-body-sm"><span   class="text-light-on-muted"><span   class="sr-only">Step</span>
+                                                <form action="/job/create" id="CreateJob" method="POST">
+                                                    <div class="mt-5">
+                                                        <div class="grid grid-cols-12 gap-5">
+                                                            <div id="JobTitle" class="grid grid-cols-12 col-span-12">
+                                                                <div class="col-span-12 lg:col-span-6" style="width: 70%;">
+                                                                    <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             1/5
-                                                                        </span> <span   class="ml-6x">Job post</span></div>
-                                                                    <div   class="sticky-step-info">
-                                                                        <div   >
-                                                                            <h2  class="h4 display-rebrand mb-6x line-height-2rem">Let's start with a strong title.</h2>
-                                                                            <p  class="text-body-sm mb-8x">This helps your job post stand out to the right candidates. It’s the first thing they’ll see, so make it count!</p>
+                                                                        </span> <span class="ml-6x">Job post</span></div>
+                                                                    <div class="sticky-step-info">
+                                                                        <div>
+                                                                            <h2 class="h4 display-rebrand mb-6x line-height-2rem">Let's start with a strong title.</h2>
+                                                                            <p class="text-body-sm mb-8x">This helps your job post stand out to the right candidates. It’s the first thing they’ll see, so make it count!</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="lg:col-span-5">
+                                                                <div class="col-span-12 lg:col-span-5">
                                                                     <label for="firstName" class="text-sm text-gray-900 dark:text-gray-50">Job Title</label>
-                                                                    <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="firstName" value="Jansh">
+                                                                    <input name="jobTitle" type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="firstName">
                                                                     <div class="title-examples pt-10"><label class="label">
-                                                                        Example titles
+                                                                            Example titles
                                                                         </label>
                                                                         <ul class="px-4" style="list-style: disc;">
                                                                             <li>
@@ -213,8 +212,9 @@
                                                                         </ul>
                                                                     </div>
                                                                 </div>
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                            </div>
+                                                            <!--end col-->
+                                                            <!-- <div class="lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             2/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -274,8 +274,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                            <!--end col-->
+                                                            <!-- <div class="lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             2/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -317,8 +317,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                            <!--end col-->
+                                                            <div id="JobExperience" class="hidden grid grid-cols-12 col-span-12">
+                                                                <div class="col-span-12 lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             2/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -330,7 +331,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="lg:col-span-5">
+                                                                <div class="col-span-12 lg:col-span-5">
                                                                     <div class="flex-1 d-flex flex-column pt-md-8x">
                                                                         <div class="stack">
                                                                             <p class="text-body-sm mb-8x">What level of experience will it need?</p>
@@ -339,28 +340,28 @@
                                                                             <div class="py-6x py-md-3x">
                                                                                 <div class="mt-4">
                                                                                     <label>
-                                                                                        <input type="radio">
-                                                                                        <strong class="ml-2">Entry</strong>
+                                                                                        <input type="radio" name="Experience" value="0-2 years">
+                                                                                        <strong class="ml-2">Entry <span class="text-gray-400 ml-2">(0-2 years)</span></strong>
                                                                                         <small class="block mt-1 ml-4 description text-light-on-muted  text-body">
-                                                                                        Looking for someone relatively new to this field
+                                                                                            Looking for someone relatively new to this field
                                                                                         </small>
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="mt-4">
                                                                                     <label>
-                                                                                        <input type="radio">
-                                                                                        <strong class="ml-2">Intermediate</strong>
+                                                                                        <input type="radio" name="Experience" value="(3-5 years)">
+                                                                                        <strong class="ml-2">Intermediate <span class="text-gray-400 ml-2">(3-5 years)</span></strong>
                                                                                         <small class="block mt-1 ml-4 description text-light-on-muted text-body">
-                                                                                        Looking for substantial experience in this field
+                                                                                            Looking for substantial experience in this field
                                                                                         </small>
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="mt-4">
                                                                                     <label>
-                                                                                        <input type="radio">
-                                                                                        <strong class="ml-2">Expert</strong>
+                                                                                        <input type="radio" name="Experience" value="6+ years">
+                                                                                        <strong class="ml-2">Expert <span class="text-gray-400 ml-2">(6+ years)</span></strong>
                                                                                         <small class="block mt-1 ml-4 description text-light-on-muted text-body">
-                                                                                        Looking for comprehensive and deep expertise in this field
+                                                                                            Looking for comprehensive and deep expertise in this field
                                                                                         </small>
                                                                                     </label>
                                                                                 </div>
@@ -368,9 +369,11 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div id="JobType" class="hidden grid grid-cols-12 col-span-12">
+                                                                <div class="col-span-12 lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             2/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -382,7 +385,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="lg:col-span-5">
+                                                                <div class="col-span-12 lg:col-span-5">
                                                                     <div class="flex-1 d-flex flex-column pt-md-8x">
                                                                         <div class="stack">
                                                                             <p class="text-body-sm mb-8x">Is this job a contract-to-hire opportunity?</p>
@@ -391,26 +394,40 @@
                                                                             <div class="py-6x py-md-3x">
                                                                                 <div class="mt-4">
                                                                                     <label>
-                                                                                        <input type="radio">
-                                                                                        <strong class="ml-2">Yes, this could become full time</strong>
-                                                                                        <small class="block mt-1 ml-4 description text-light-on-muted  text-body">
-                                                                                        After a trial period, you can pay a one-time fee to convert the contract. 
-                                                                                        </small>
+                                                                                        <input type="radio" name="jobType" value="Full-Time">
+                                                                                        <strong class="ml-2">Full-Time</strong>
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="mt-4">
                                                                                     <label>
-                                                                                        <input type="radio">
+                                                                                        <input type="radio" name="jobType" value="Part-Time">
                                                                                         <strong class="ml-2">
-                                                                                        No, not at this time</strong>
+                                                                                            Part-Time</strong>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="mt-4">
+                                                                                    <label>
+                                                                                        <input type="radio" name="jobType" value="Contractor / Freelancer">
+                                                                                        <strong class="ml-2">
+                                                                                            Contractor / Freelancer</strong>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="mt-4">
+                                                                                    <label>
+                                                                                        <input type="radio" name="jobType" value="Intern">
+                                                                                        <strong class="ml-2">
+                                                                                            Intern</strong>
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
+
                                                                         </div>
                                                                     </div>
-                                                                </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div id="JobSalary" class="hidden grid grid-cols-12 col-span-12">
+                                                                <div class="col-span-12 lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             4/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -422,40 +439,47 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="lg:col-span-5">
+                                                                <div class="col-span-12 lg:col-span-5">
                                                                     <div class="grid grid-cols-2 h-24 gap-6">
-                                                                        <div class="bg-white border border-2 border-gray-300 rounded-lg relative">
-                                                                            <input type="radio" name="" id="" class="absolute top-2 right-2">
-                                                                            <p class="absolute bottom-3 left-6 font-bold">In Range Salary</p>
-                                                                            <i class="fa-regular fa-clock fa-xl absolute top-7 left-6"></i>
-                                                                        </div>
-                                                                        <div class="bg-white border border-2 border-gray-300 rounded-lg relative">
-                                                                            <input type="radio" name="" id="" class="absolute top-2 right-2">
-                                                                            <p class="absolute bottom-3 left-6 font-bold">Fixed Salary</p>
-                                                                            <img class="absolute top-3 left-6" src="/assets/images/price-tag-usd-50.png" alt="price tag" width="32" height="32">
-                                                                        </div>
+                                                                        <label class="relative border border-2 border-gray-300 rounded-lg" for="rangeSalary">
+                                                                            <div class="bg-white">
+                                                                                <input type="radio" name="SalaryType" id="rangeSalary" class="absolute top-4" style="right: 6%" value="Range">
+                                                                                <p class="absolute bottom-3 left-6 font-bold">In Range Salary</p>
+                                                                                <i class="fa-regular fa-clock fa-xl absolute top-7 left-6"></i>
+                                                                            </div>
+                                                                        </label>
+                                                                        <label class="relative border border-2 border-gray-300 rounded-lg" for="fixedSalary">
+                                                                            <div class="bg-white">
+                                                                                <input type="radio" name="SalaryType" id="fixedSalary" class="absolute top-4" style="right: 6%;" value="Fixed" checked>
+                                                                                <p class="absolute bottom-3 left-6 font-bold">Fixed Salary</p>
+                                                                                <img class="absolute top-3 left-6" src="/assets/images/price-tag-usd-50.png" alt="price tag" width="32" height="32">
+                                                                            </div>
+                                                                        </label>
                                                                     </div>
-                                                                    <div class="hidden grid grid-cols-2 h-24 mt-8">
-                                                                        <div class="bg-white relative">
-                                                                            <input class="absolute text-right bottom-3 border left-1 border-gray-500 rounded px-2 py-1 w-32" />
-                                                                            <span class="absolute bottom-3 font-medium" style="left: 58%; font-size: 1rem;">/ month</span>
-                                                                            <p class="absolute top-4 left-1 font-bold">From</p>
-                                                                        </div>
-                                                                        <div class="bg-white relative">
-                                                                            <input class="absolute text-right bottom-3 border border-gray-500 rounded px-2 py-1 w-32 left-2" />
-                                                                            <span class="absolute bottom-3 font-medium" style="left: 60%; font-size: 1rem;">/ month</span>
-                                                                            <p class="absolute top-4 left-2 font-bold">To</p>
-                                                                        </div>
-                                                                    </div>
+
                                                                     <div class="block h-24 mt-8">
                                                                         <p class="mb-10">Set a price for the project and pay at the end, or you can divide the project into milestones and pay as each milestone is completed.</p>
                                                                         <p class="font-bold mb-2">What is the best cost estimate for your project?</p>
                                                                         <p class="mb-4">You can negotiate this cost and create milestones when you chat with your freelancer.</p>
-                                                                        <input type="text" class="w-32 text-right rounded-lg">
+                                                                        <input name="salary" id="fixedInput" type="text" class="w-32 text-right rounded-lg">
+                                                                        <div id="rangeInput" class="hidden grid grid-cols-2 h-24 mt-8">
+                                                                            <div class="bg-white relative">
+                                                                                <input class="absolute text-right bottom-3 border left-1 border-gray-500 rounded px-2 py-1 w-32" name="salaryFrom" />
+                                                                                <span class="absolute bottom-3 font-medium" style="left: 58%; font-size: 1rem;">/ month</span>
+                                                                                <p class="absolute top-4 left-1 font-bold">From</p>
+                                                                            </div>
+                                                                            <div class="bg-white relative">
+                                                                                <input class="absolute text-right bottom-3 border border-gray-500 rounded px-2 py-1 w-32 left-2" name="salaryTo"/>
+                                                                                <span class="absolute bottom-3 font-medium" style="left: 60%; font-size: 1rem;">/ month</span>
+                                                                                <p class="absolute top-4 left-2 font-bold">To</p>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="lg:col-span-6" style="width: 70%;">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div id="JobDescription" class="hidden grid grid-cols-12 col-span-12">
+                                                                <div id class="col-span-12 lg:col-span-6" style="width: 70%;">
                                                                     <div class="mb-6x sticky-step-number text-body-sm"><span class="text-light-on-muted"><span class="sr-only">Step</span>
                                                                             5/5
                                                                         </span> <span class="ml-6x">Job post</span>
@@ -482,20 +506,24 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="lg:col-span-5">
+                                                                <div class="col-span-12 lg:col-span-5">
                                                                     <p class="font-bold">Describe what you need</p>
-                                                                    <textarea name="" id="" class="mt-3 rounded-lg border border-gray-200 w-full" rows="10" placeholder="Already have a description? Paste it here!"></textarea>
-                                                                </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="col-span-12 lg:col-span-12">
+                                                                    <textarea name="description" id="" class="mt-3 rounded-lg border border-gray-200 w-full" rows="10" placeholder="Already have a description? Paste it here!"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!--end col-->
+                                                        <!-- <div class="col-span-12 lg:col-span-12">
                                                                     <div class="relative mb-3">
                                                                         <label for="lastName" class="dollar text-sm text-gray-900 dark:text-gray-50">Salary</label>
 
                                                                         <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="lastName" value="Dickens">
                                                                     </div>
                                                                 </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="col-span-12 lg:col-span-6">
+                                                        <!--end col-->
+                                                        <!-- <div class="col-span-12 lg:col-span-6">
                                                                     <div class="mb-3">
                                                                         <label for="choices-single-categories" class="text-sm text-gray-900 dark:text-gray-50">Employee Type</label>
                                                                         <div class="mt-1">
@@ -508,37 +536,37 @@
                                                                         </div>
                                                                     </div>
                                                                 </div> -->
-                                                                <!--end col-->
-                                                                <!-- <div class="col-span-12 lg:col-span-6">
+                                                        <!--end col-->
+                                                        <!-- <div class="col-span-12 lg:col-span-6">
                                                                     <div class="mb-3">
                                                                         <label for="email" class="text-sm text-gray-900 dark:text-gray-50">Email</label>
                                                                         <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="email" value="Jansh@gmail.com">
                                                                     </div>
                                                                 </div> -->
-                                                                <!--end col-->
-                                                            </div>
-                                                        </div>
-                                                        <!--end row-->
+                                                        <!--end col-->
                                                     </div>
-                                                    <!--end account-->
-                                                    <!-- <div class="mt-4"> -->
-                                                    <!-- <h5 class="mb-3 font-semibold text-gray-900 text-17 dark:text-gray-50">Job Details</h5> -->
-                                                    <!-- <div class="grid grid-cols-12 gap-5"> -->
-                                                    <!-- <div class="col-span-12">
+                                            </div>
+                                            <!--end row-->
+                                        </div>
+                                        <!--end account-->
+                                        <!-- <div class="mt-4"> -->
+                                        <!-- <h5 class="mb-3 font-semibold text-gray-900 text-17 dark:text-gray-50">Job Details</h5> -->
+                                        <!-- <div class="grid grid-cols-12 gap-5"> -->
+                                        <!-- <div class="col-span-12">
                                                                 <div class="mb-3">
                                                                     <label for="exampleFormControlTextarea1" class="form-label dark:text-gray-300">Job Description</label>
                                                                     <textarea class="w-full mt-1 text-sm rounded border-gray-100/50 dark:bg-transparent dark:border-neutral-600 dark:text-gray-300" id="exampleFormControlTextarea1" rows="5">Developer with over 5 years' experience working in both the public and private sectors. Diplomatic, personable, and adept at managing sensitive situations. Highly organized, self-motivated, and proficient with computers. Looking to boost students’ satisfactions scores for International University. Bachelor's degree in communications.</textarea>
                                                                 </div>
                                                             </div> -->
-                                                    <!--end col-->
-                                                    <!-- <div class="col-span-12 lg:col-span-6">
+                                        <!--end col-->
+                                        <!-- <div class="col-span-12 lg:col-span-6">
                                                                 <div class="mb-3">
                                                                     <label for="languages" class="text-sm text-gray-900 dark:text-gray-50">Languages</label>
                                                                     <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="languages" value="English, German, French">
                                                                 </div>
                                                             </div> -->
-                                                    <!--end col-->
-                                                    <!-- <div class="col-span-12 lg:col-span-6">
+                                        <!--end col-->
+                                        <!-- <div class="col-span-12 lg:col-span-6">
                                                                 <div class="mb-3">
                                                                     <label for="choices-single-location" class="text-sm text-gray-900 dark:text-gray-50">Location</label>
                                                                     <div class="mt-1">
@@ -794,34 +822,36 @@
                                                                     </div>
                                                                 </div>
                                                             </div> -->
-                                                    <!--end col-->
+                                        <!--end col-->
 
-                                                    <!-- </div> -->
-                                                    <!--end row-->
-                                                    <!-- </div> -->
-                                                    <!--end profile-->
+                                        <!-- </div> -->
+                                        <!--end row-->
+                                        <!-- </div> -->
+                                        <!--end profile-->
 
-                                                    <!--end Change-password-->
-                                                    <div class="mt-8 text-right absolute bottom-0">
-                                                        <a href="javascript:void(0)" class="text-white btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent focus:ring group-data-[theme-color=violet]:focus:ring-violet-500/20 group-data-[theme-color=sky]:focus:ring-sky-500/20 group-data-[theme-color=red]:focus:ring-red-500/20 group-data-[theme-color=green]:focus:ring-green-500/20 group-data-[theme-color=pink]:focus:ring-pink-500/20 group-data-[theme-color=blue]:focus:ring-blue-500/20">Next</a>
-                                                    </div>
-                                                </form>
+                                        <!--end Change-password-->
+                                        </form>
+                                        <div class="absolute bottom-0" style="right: 20%;">
+                                            <div class="mt-8 text-right absolute bottom-0">
+                                                <button id="nextBtn" class="text-white btn group-data-[theme-color=blue]:bg-blue-500 border-transparent focus:ring group-data-[theme-color=violet]:focus:ring-violet-500/20 group-data-[theme-color=sky]:focus:ring-sky-500/20 group-data-[theme-color=red]:focus:ring-red-500/20 group-data-[theme-color=green]:focus:ring-green-500/20 group-data-[theme-color=pink]:focus:ring-pink-500/20 group-data-[theme-color=blue]:focus:ring-blue-500/20">Next</button>
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
+
+
+
                         </div>
                     </div>
-            </section>
-            <!-- End grid -->
-
-
-
+                </div>
         </div>
+        </section>
+        <!-- End grid -->
+
+
+
+    </div>
     </div>
 
 
@@ -849,7 +879,7 @@
     </section>
     <!-- end subscribe -->
     <!-- Footer Start -->
-    <footer class="footer ">
+    <footer class="hidden footer">
         <!-- start footer -->
         <section class="py-12 bg-zinc-800 dark:bg-neutral-900">
             <div class="container mx-auto">
@@ -1011,7 +1041,47 @@
     </footer>
     <!-- end Footer -->
 
+    <script>
+        const nextBtn = document.getElementById('nextBtn');
+        const formSteps = FormSteps();
+        const steps = FormSteps();
+        steps.next();
 
+        function* FormSteps() {
+            let step;
+            const steps = ['JobTitle', 'JobExperience', 'JobDescription', 'JobType', 'JobSalary'];
+            for (step of steps) {
+                yield step;
+            }
+        }
+        nextBtn.addEventListener('click', function() {
+            var step = formSteps.next();
+            if (step.value == 'JobType') {
+                nextBtn.innerHTML = 'Submit';
+            } else if (step.value == 'JobSalary') {
+                document.getElementById('CreateJob').submit();
+            }
+            var nextStep = steps.next();
+            if (!step.done) {
+                document.getElementById(step.value)?.classList.add('hidden');
+                document.getElementById(nextStep.value)?.classList.remove('hidden');
+            }
+        });
+
+        const SalaryInputs = document.getElementsByName('SalaryType');
+        SalaryInputs.forEach((input) => {
+            input.addEventListener('change', function() {
+                if (input.value === 'Fixed') {
+                    document.getElementById('fixedInput').classList.remove('hidden');
+                    document.getElementById('rangeInput').classList.add('hidden');
+                } else {
+                    document.getElementById('fixedInput').classList.add('hidden');
+                    document.getElementById('rangeInput').classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+    <!-- 
     <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
     <script src="/assets/libs/@popperjs/core/umd/popper.min.js"></script>
     <script src="/assets/libs/simplebar/simplebar.min.js"></script>
@@ -1027,7 +1097,7 @@
 
     <script src="/assets/js/pages/nav&tabs.js"></script>
 
-    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/app.js"></script> -->
 
 </body>
 

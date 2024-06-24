@@ -21,8 +21,9 @@ CREATE TABLE IF NOT EXISTS jobs (
     Experience_level VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     Employee_type varchar(255) NOT NULL,
-    Offer_salary int NOT NULL,
-    location VARCHAR(255) NOT NULL,
+    salary int NOT NULL,
+    salary_range VARCHAR(255) NOT NULL,
+    salary_type ENUM('Fixed', 'Range') NOT NULL,
     FOREIGN KEY (recuiter_id) REFERENCES users(id)
 );
 
@@ -33,8 +34,8 @@ CREATE TABLE IF NOT EXISTS comments (
     comment TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (job_id) REFERENCES jobs(id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS skills (

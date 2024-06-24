@@ -19,23 +19,21 @@ class JobsController
 
     public function store() {
         RedirectIfGuest();
-
-        echo '<pre>'.print_r($_POST, true).'</pre>';
-        $skills = $_POST['Skills'];
-        // echo '<pre>'.print_r($skills, true).'</pre>';
-        $skill_ids = [];
-        Job::create([
+        $salary_range = request()->salaryFrom.'$'.' - '.request()->salaryTo."$";
+        $job = [
             'recuiter_id' => auth()->id,
-            'job_title' => $_POST['Job_title'],
-            'description' => $_POST['Description'],
-            'Offer_salary' => (int) $_POST['Offer_salary'],
-            'location' => $_POST['Location'],
-            'Employee_type' => $_POST['Employee_type'],
-            'Experience_level' => $_POST['Experience'],
-            'position' => $_POST['Position'],
-        
-        ]);
-        
+            'job_title' => request()->jobTitle,
+            'position' => request()->Experience == '6+ years' ? 'Senior' : 'Junior',
+            'Experience_level' => request()->Experience,
+            'description' => request()->description,
+            'Employee_type' => request()->jobType,
+            'salary' => request()->salary ?: 0,
+            'salary_range' => $salary_range ?? '',
+            'salary_type' => request()->SalaryType
+        ];
+        $job_id = Job::create($job);
+
+        redirect('/job/'.$job_id);
         // $job_id = Job::lastInsertedId();
         // foreach ($skills as $skill_name) {
         //     $skill = Skill::findOrInsert('skill_name', $skill_name);
@@ -43,7 +41,15 @@ class JobsController
         // }
         // echo '<pre>'.print_r($skill_ids, true).'</pre>';
         // Job::attach('job_skills', 'job_id', 'skill_id', $job_id, $skill_ids[0]);
-        echo auth()->id;
+    }
+
+    public function candidate($job_id, $jobseeker_id) {
+        // type your logic here and don't forget to return the value
+        $user = User::find($jobseeker_id);
+        $job = Job::find($job_id);
+        if (in_array((int)$jobseeker_id, $job->candidates($job_id)))
+            return view('job/candidate', ['job_id' => $job_id, 'candidate' => $user]);
+        return view('errors/404', ['message' => 'Candidate not found']);
     }
     public function update($id) {
         // type your logic here and don't forget to return the value
@@ -60,8 +66,15 @@ class JobsController
 
     public function delete($id) {
         Job::delete($id);
+        return view('job/manage-jobs', ['jobs' => Job::where('recuiter_id', auth()->id)]);
+
     }
 
+    public function manage() {
+        // type your logic here and don't forget to return the value
+        // return '<pre></pre>'.print_r(Job::where('recuiter_id', auth()->id), true).'</pre>';
+        return view('job/manage-jobs', ['jobs' => Job::where('recuiter_id', auth()->id)]);
+    }
 
     public function apply($id) {
         if (Job::exists('id', $id))

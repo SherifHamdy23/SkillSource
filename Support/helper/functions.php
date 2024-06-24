@@ -4,8 +4,8 @@ use Support\Auth;
 
     session_start();
 
-    function redirect() {
-        header('Location: test');
+    function redirect($uri) {
+        header('Location: '.$uri);
     }
 
     function isLoggedIn() {

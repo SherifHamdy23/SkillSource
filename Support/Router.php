@@ -25,6 +25,10 @@ class Router {
     public static function delete($url, $handler) {
         static::$routes['DELETE'][$url] = $handler;
     }
+    public static function view($url, $view) {
+        static::$routes['GET'][$url] = fn() => view($view);
+    }
+
     public static function dispatch($url , $verb) {
         foreach (self::$routes[$verb] as $pattern => $handler) {
             // Convert route pattern to a regular expression

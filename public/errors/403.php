@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
 </head>
 <body class="h-full m-0 flex justify-center items-center">
+    <?php include_once(__DIR__."/../components/nav.php"); ?>
     <div class="flex justify-center items-center">
         
         <div class="w-full h-full text-center">

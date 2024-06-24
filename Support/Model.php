@@ -44,7 +44,8 @@ abstract class Model {
         $columns = implode(', ', static::$fillable);
         $placeholders = ':' . implode(', :', static::$fillable);
         $sql = "INSERT INTO " . static::table() . " ($columns) VALUES ($placeholders)";
-        return DB::query($sql, $data);
+        DB::query($sql, $data);
+        return DB::lastInsertedId();
     }
     
     public static function find($id) {
