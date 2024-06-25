@@ -1,4 +1,7 @@
-<?php RedirectIfGuest() ?>
+<?php 
+RedirectIfGuest();
+redirectIfJobSeeker();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="blue">
 

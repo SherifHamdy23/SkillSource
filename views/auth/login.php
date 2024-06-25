@@ -36,20 +36,19 @@ if (isset($_SESSION['user'])) header('Location: /home');
             </div>
             <form action="login" method="POST" class="mt-8">
                 <?php if (isset($_GET['error'])) : ?>
-                    <p class="text-white bg-red-500 p-1 w-40 text-center rounded"><?= $_GET['error'] ?></p>
+                    <div class="w-full flex justify-center">    
+                        <p class="text-white bg-red-500 p-1 w-40 text-center rounded"><?= $_GET['error'] ?></p>
+                        </div>
                 <?php endif; ?>
                 <div class="mb-5">
                     <label for="usernameInput">Email</label>
-                    <input type="text" name="email" class="w-full mt-1 py-2.5 rounded border border-gray-300 placeholder:text-sm placeholder:text-gray-300 " required="" id="usernameInput" placeholder="Enter your username">
+                    <input type="text" name="email" class="w-full mt-1 py-2.5 rounded border border-gray-300 placeholder:text-sm placeholder:text-gray-300 " required="" id="usernameInput" placeholder="Enter your username" required>
                 </div>
                 <div class="mb-5">
                     <label for="emailInput">Password</label>
-                    <input type="password" name="password" class="w-full mt-1 rounded border-gray-300 placeholder:text-sm placeholder:text-gray-300" id="passwordInput" placeholder="Enter your password">
+                    <input type="password" name="password" class="w-full mt-1 rounded border-gray-300 placeholder:text-sm placeholder:text-gray-300" id="passwordInput" placeholder="Enter your password" required>
                 </div>
-                <div><input class="align-middle border-transparent rounded focus:ring-0 focus:ring-offset-0 group-data-[theme-color=violet]:checked:bg-violet-500 group-data-[theme-color=sky]:checked:bg-sky-500 group-data-[theme-color=red]:checked:bg-red-500 group-data-[theme-color=green]:checked:bg-green-500 group-data-[theme-color=pink]:checked:bg-pink-500 group-data-[theme-color=blue]:checked:bg-blue-500" type="checkbox" id="flexCheckDefault">
-                    <a href="reset-password.html" class="ltr:float-right rtl:float-left">Forgot Password?</a>
-                    <label class="align-middle" for="flexCheckDefault">Remember me</label>
-                </div>
+
                 <div class="my-8 text-center">
                     <button type="submit" class="btn text-gray-900 font-medium border hover:-translate-y-1.5 duration-500 ease">Login
                     </button>

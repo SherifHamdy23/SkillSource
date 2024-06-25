@@ -14,6 +14,7 @@ use Support\Router;
     // Define routes
     Router::get('/users', [UsersController::class, 'index']);
     Router::view('/', 'home');
+    Router::view('/dashboard', 'dashboard');
     Router::view('/team','team');
     Router::view('/home', 'home');
     Router::view('/status','200');
@@ -21,11 +22,13 @@ use Support\Router;
 
     Router::get('/job/create', [JobsController::class, 'create']);
     Router::post('/job/create', [JobsController::class, 'store']);
+
     Router::get('/job/{id}', [JobsController::class, 'show']);
     Router::get('/job/{id}/delete', [JobsController::class, 'delete']);
 
     Router::post('/job/{id}/comment', [CommentsController::class, 'store']);
     Router::get('/job/{id}/apply', [JobsController::class, 'apply']);
+
     Router::get('/job/{id}/candidates', [JobsController::class, 'candidates']);
     Router::get('/job/{id}/candidate/{jobseeker}', [JobsController::class, 'candidate']);
 
